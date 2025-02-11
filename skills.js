@@ -1,19 +1,22 @@
 import { skillsData } from "./constant.js";
-let data =  skillsData;
+
+// Cache DOM elements and data
 const boxes = document.querySelectorAll('.skillpara');
 const mainContent = document.getElementById('mainContent');
 
-      boxes.forEach(box => {
-        box.addEventListener('mouseover', () => {
-          const content = box.getAttribute('data-content');
-          mainContent.innerHTML = data[content];
+// Event handler functions
+const showContent = (event) => {
+  const content = event.target.getAttribute('data-content');
+  mainContent.innerHTML = skillsData[content];
+  mainContent.classList.add('active');
+};
 
-          // Trigger reveal animation
-          mainContent.classList.add('active');
-        });
+const hideContent = () => {
+  mainContent.classList.remove('active');
+};
 
-        box.addEventListener('mouseout', () => {
-          // Hide content smoothly
-          mainContent.classList.remove('active');
-        });
-      });
+// Add event listeners
+boxes.forEach(box => {
+  box.addEventListener('mouseover', showContent);
+  box.addEventListener('mouseout', hideContent);
+});
