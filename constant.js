@@ -7,7 +7,7 @@ export const summaryData = [
       and implementing innovative features. Proficient in AWS, Git, and other essential tools.`,
     tiitleWord: "Experience...",
     subtitleWord:"3 Years of experence in software development"
-
+ 
   },
   {
     innterText: `<div class="typewriter"><p>Projects</p></div>`,
